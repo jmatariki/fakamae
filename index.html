@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        setTimeout(function() {
-            window.location.href = "https://reorefenuaradio.tiiny.site/";
-        }, 3000); // Redirect after 3 seconds (3000ms). Change to 0 for instant redirect.
+        function openPopup() {
+            var newWindow = window.open("https://reorefenuaradio.tiiny.site/", "popupWindow", "width=800,height=600,scrollbars=yes");
+            if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                // If the popup is blocked, show a manual link
+                document.getElementById("manualLink").style.display = "block";
+            }
+        }
+        window.onload = function() {
+            openPopup();
+        };
     </script>
 </head>
 <body>
-    <p>If the radio does not open automatically, <a href="https://reorefenuaradio.tiiny.site/">click here</a>.</p>
+    <p>If the radio does not open automatically, <a href="https://reorefenuaradio.tiiny.site/" target="_blank">click here</a>.</p>
+    <p id="manualLink" style="display: none;">Popup blocked? <a href="https://reorefenuaradio.tiiny.site/" target="_blank">Click here</a>.</p>
 </body>
 </html>
